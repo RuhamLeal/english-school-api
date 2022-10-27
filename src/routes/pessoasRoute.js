@@ -3,10 +3,11 @@ const PessoaController = require('../controllers/PessoasController');
 
 const router = Router();
 
-router.get('/pessoas', PessoaController.getAllPersons);
-router.get('/pessoas/:id', PessoaController.getPersonById);
-router.post('/pessoas', PessoaController.createPerson);
-router.put('/pessoas/:id', PessoaController.updatePerson);
-router.delete('/pessoas/:id', PessoaController.deletePerson);
+router
+  .get('/pessoas', PessoaController.getAllPersons)
+  .get('/pessoas/:id', PessoaController.getPersonById)
+  .post('/pessoas', PessoaController.createPerson)
+  .put('/pessoas/:id', PessoaController.updatePerson)
+  .delete('/pessoas/:id', PessoaController.deletePerson)
 
 module.exports = router;
