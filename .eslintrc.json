@@ -1,0 +1,6 @@
+{
+  "extends": "trybe-backend",
+    "rules": {
+        "camelcase": "off"
+    }
+}
