@@ -1,12 +1,16 @@
-const { Router } = require('express')
-const TurmaController = require('../controllers/TurmaController')
+const { Router } = require('express');
+const TurmaController = require('../controllers/TurmaController');
  
-const router = Router()
-router
-  .get('/turmas', TurmaController.getAllClass)
-  .get('/turmas/:id', TurmaController.getClassById)
-  .post('/turmas', TurmaController.createClass)
-  .put('/turmas/:id', TurmaController.updateClass)
-  .delete('/turmas/:id', TurmaController.deleteClass)
+const router = Router();
 
-module.exports = router
+const routeToClasses = '/turmas';
+const routeToClassByID = '/turmas/:id';
+
+router
+  .get(routeToClasses, TurmaController.getAllClass)
+  .get(routeToClassByID, TurmaController.getClassById)
+  .post(routeToClasses, TurmaController.createClass)
+  .put(routeToClassByID, TurmaController.updateClass)
+  .delete(routeToClassByID, TurmaController.deleteClass);
+
+module.exports = router;
