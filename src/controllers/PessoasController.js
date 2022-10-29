@@ -137,6 +137,19 @@ class PessoaController {
       return res.status(500).json(err.message);
     }
   }
+
+  static async getRegistersByStudent(req, res) {
+    const { studentId } = req.params;
+    try {
+      const person = await database.Pessoas.findOne({
+        where: { id: Number(studentId) },
+      });
+      const registers = await person.getAulasMatriculadas();
+      return res.status(200).json(registers);
+    } catch (err) {
+      return res.status(500).json(err.message);
+    }
+  }
 }
 
 module.exports = PessoaController;
