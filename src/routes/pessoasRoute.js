@@ -6,14 +6,16 @@ const router = Router();
 const routeToRegisterByID = '/pessoas/:studentId/matricula/:registerId';
 const routeToPersonByID = '/pessoas/:id';
 const routeToRegisterByPersonID = '/pessoas/:studentId/matricula';
-const routeToPerson = '/pessoas';
+const routeToActivePersons = '/pessoas';
 const routeToRestorePerson = '/pessoas/:id/restore';
+const routeToAllPersons = '/pessoas/all';
 
 router
-  .get(routeToPerson, PessoaController.getAllPersons)
+  .get(routeToActivePersons, PessoaController.getAllActivePersons)
+  .get(routeToAllPersons, PessoaController.getAllPersons)
   .get(routeToPersonByID, PessoaController.getPersonById)
   .get(routeToRegisterByID, PessoaController.getRegisterByPersonId)
-  .post(routeToPerson, PessoaController.createPerson)
+  .post(routeToActivePersons, PessoaController.createPerson)
   .post(routeToRegisterByPersonID, PessoaController.createRegisterByPersonId)
   .post(routeToRestorePerson, PessoaController.restorePerson)
   .put(routeToPersonByID, PessoaController.updatePerson)
