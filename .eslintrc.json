@@ -1,6 +1,8 @@
 {
   "extends": "trybe-backend",
     "rules": {
-        "camelcase": "off"
+        "camelcase": "off",
+        "complexity": "off",
+        "max-lines-per-function": "off"
     }
 }

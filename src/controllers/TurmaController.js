@@ -1,9 +1,20 @@
+/* eslint-disable no-unused-expressions */
+const Sequelize = require('sequelize');
 const database = require('../models');
+
+const { Op } = Sequelize;
 
 class TurmaController {
   static async getAllClass(req, res) {
+    const { data_inicial, data_final } = req.query;
+
+    const condition = {};
+    data_inicial || data_final ? condition.data_inicio = {} : null;
+    data_inicial ? condition.data_inicio[Op.gte] = data_inicial : null;
+    data_final ? condition.data_inicio[Op.lte] = data_final : null;
+
     try {
-      const allClasses = await database.Turmas.findAll();
+      const allClasses = await database.Turmas.findAll({ where: condition });
       return res.status(200).json(allClasses);  
     } catch (error) {
       return res.status(500).json(error.message);
