@@ -85,7 +85,7 @@ class PessoaController {
     const { studentId, registerId } = req.params;
     try {
       const registerById = await database.Matriculas.findOne({
-        where: { 
+        where: {
           id: Number(registerId),
           estudante_id: Number(studentId),
         },
@@ -112,7 +112,7 @@ class PessoaController {
     const newData = req.body;
     try {
       await database.Matriculas.update(newData, {
-        where: { 
+        where: {
           id: Number(registerId),
           estudante_id: Number(studentId),
         },
@@ -155,7 +155,7 @@ class PessoaController {
     const { classId } = req.params;
     try {
       const allRegisters = await database.Matriculas.findAndCountAll({
-        where: { 
+        where: {
           turma_id: Number(classId),
           status: 'confirmado',
         },
@@ -171,18 +171,18 @@ class PessoaController {
   static async cancelPerson(req, res) {
     const { studentId } = req.params;
     try {
-      database.sequelize.transaction(async (cancelingPerson) => {
+      return database.sequelize.transaction(async (cancelingPerson) => {
         await database.Pessoas.update({ ativo: false }, {
-          where: { 
+          where: {
             id: Number(studentId),
           },
         }, { transaction: cancelingPerson });
         await database.Matriculas.update({ status: 'cancelado' }, {
-          where: { 
+          where: {
             estudante_id: Number(studentId),
           },
         }, { transaction: cancelingPerson });
-        return res.status(200).json({ 
+        return res.status(200).json({
           message: `Matricula referente ao estudante de ID:${studentId} foi cancelada`,
         });
       });

@@ -15,7 +15,7 @@ class TurmaController {
 
     try {
       const allClasses = await database.Turmas.findAll({ where: condition });
-      return res.status(200).json(allClasses);  
+      return res.status(200).json(allClasses);
     } catch (error) {
       return res.status(500).json(error.message);
     }
@@ -24,9 +24,9 @@ class TurmaController {
   static async getClassById(req, res) {
     const { id } = req.params;
     try {
-      const oneCLass = await database.Turmas.findOne({ 
-        where: { 
-          id: Number(id), 
+      const oneCLass = await database.Turmas.findOne({
+        where: {
+          id: Number(id),
         },
       });
       return res.status(200).json(oneCLass);
