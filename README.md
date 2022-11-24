@@ -23,13 +23,13 @@ BASE URL: http://localhost:3001
 
 SOME ENDPOINTS:    
 persons: http://localhost:3001/pessoas to show all active persons.        
-persons: http://localhost:3001/pessoas/all to show all persons.      
-persons: (post) http://localhost:3001/pessoas to add a new student ou teacher
-classes: http://localhost:3001/pessoas/matricula/:classId/confirmadas to show all the people enrolled in a specific class            
-classes: http://localhost:3001/turmas to show all classes        
-classes: http://localhost:3001/turmas/:id  to show a class by its ID     
-persons:  (post) http://localhost:3001/pessoas/:studentId/cancela  to cancel a active person                
-persons:  (post) http://localhost:3001/pessoas/:id/restore to restore a person             
+persons: http://localhost:3001/pessoas/all to show all persons.          
+persons: (post) http://localhost:3001/pessoas to add a new student ou teacher             
+classes: http://localhost:3001/pessoas/matricula/:classId/confirmadas to show all the people enrolled in a specific class             
+classes: http://localhost:3001/turmas to show all classes         
+classes: http://localhost:3001/turmas/:id  to show a class by its ID      
+persons:  (post) http://localhost:3001/pessoas/:studentId/cancela  to cancel a active person                 
+persons:  (post) http://localhost:3001/pessoas/:id/restore to restore a person              
 
 ### Project have more endpoints, install repo and see more !
 
