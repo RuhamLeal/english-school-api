@@ -10,4 +10,4 @@ app.listen(port, () => {
   console.log(`Ouvindo na porta: ${port}`);
 });
 
-module.exports = app ;
+module.exports = app;
