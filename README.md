@@ -23,13 +23,15 @@ BASE URL: http://localhost:3001
 
 SOME ENDPOINTS:    
 persons: http://localhost:3001/pessoas to show all active persons.        
-persons: http://localhost:3001/pessoas/all to show all persons.            
-find product by ID: http://15.228.199.125:3001/products/${id}            
-find sale by ID: http://15.228.199.125:3001/sales/${id}     
-delete a sale: http://15.228.199.125:3001/sales/${id}  with delete method      
-delete a product: http://15.228.199.125:3001/products/${id}  with delete method     
+persons: http://localhost:3001/pessoas/all to show all persons.      
+persons: (post) http://localhost:3001/pessoas to add a new student ou teacher
+classes: http://localhost:3001/pessoas/matricula/:classId/confirmadas to show all the people enrolled in a specific class            
+classes: http://localhost:3001/turmas to show all classes        
+classes: http://localhost:3001/turmas/:id  to show a class by its ID     
+persons:  (post) http://localhost:3001/pessoas/:studentId/cancela  to cancel a active person                
+persons:  (post) http://localhost:3001/pessoas/:id/restore to restore a person             
 
-Project have more endpoints, install repo and see more !
+### Project have more endpoints, install repo and see more !
 
 ### Prerequisites
 
@@ -53,7 +55,7 @@ Install dependencies:
 npm install    
 ```
 
-Populate database with scripts:    
+Populate database with commands:    
 ```
 npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all   
 ```
