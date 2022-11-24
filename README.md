@@ -10,7 +10,7 @@ This Project use node.js, express, mysql, sequelize, and has the Model, Viw and 
 - [Getting Started](#getting-started)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
-- [Tests](#tests)
+- [More info](#more-info)
 - [Contact](#contact)
 
 ## Getting Started
@@ -32,6 +32,10 @@ persons:  (post) http://localhost:3001/pessoas/:studentId/cancela  to cancel a a
 persons:  (post) http://localhost:3001/pessoas/:id/restore to restore a person              
 
 ### Project have more endpoints, install repo and see more !
+
+### More info
+
+This project uses the ORM sequelize, which brings a lot of speed in manipulating the database for the developer, with it I could do several endpoints and a strong point of sequelize is that it has a method that does not need to delete some data from the database just leave it as inactive, with this we can activate the registration of people or deactivating, without having to delete from our database
 
 ### Prerequisites
 
