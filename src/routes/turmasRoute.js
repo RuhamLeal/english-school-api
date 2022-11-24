@@ -3,14 +3,11 @@ const TurmaController = require('../controllers/TurmaController');
 
 const router = Router();
 
-const routeToClasses = '/turmas';
-const routeToClassByID = '/turmas/:id';
-
 router
-  .get(routeToClasses, TurmaController.getAllClass)
-  .get(routeToClassByID, TurmaController.getClassById)
-  .post(routeToClasses, TurmaController.createClass)
-  .put(routeToClassByID, TurmaController.updateClass)
-  .delete(routeToClassByID, TurmaController.deleteClass);
+  .get('/turmas', TurmaController.getAllClass)
+  .get('/turmas/:id', TurmaController.getClassById)
+  .post('/turmas', TurmaController.createClass)
+  .put('/turmas/:id', TurmaController.updateClass)
+  .delete('/turmas/:id', TurmaController.deleteClass);
 
 module.exports = router;

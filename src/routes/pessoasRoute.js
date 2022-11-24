@@ -3,30 +3,20 @@ const PessoaController = require('../controllers/PessoasController');
 
 const router = Router();
 
-const routeToActivePersons = '/pessoas';
-const routeToPersonByID = '/pessoas/:id';
-const routeToAllPersons = '/pessoas/all';
-const routeToRestorePerson = '/pessoas/:id/restore';
-const routeToRegisterByPersonID = '/pessoas/:studentId/matricula';
-const routeToRegisterByID = '/pessoas/:studentId/matricula/:registerId';
-const routeToConfirmedRegistersByPerson = '/pessoas/:studentId/matriculas-confirmadas';
-const routeToAllConfirmedRegisterByClass = '/pessoas/matricula/:classId/confirmadas';
-const routeToCancelPerson = '/pessoas/:studentId/cancela';
-
 router
-  .get(routeToActivePersons, PessoaController.getAllActivePersons)
-  .get(routeToAllPersons, PessoaController.getAllPersons)
-  .get(routeToPersonByID, PessoaController.getPersonById)
-  .get(routeToRegisterByID, PessoaController.getRegisterByPersonId)
-  .get(routeToConfirmedRegistersByPerson, PessoaController.getRegistersByStudent)
-  .get(routeToAllConfirmedRegisterByClass, PessoaController.getRegistersByClass)
-  .post(routeToActivePersons, PessoaController.createPerson)
-  .post(routeToCancelPerson, PessoaController.cancelPerson)
-  .post(routeToRegisterByPersonID, PessoaController.createRegisterByPersonId)
-  .post(routeToRestorePerson, PessoaController.restorePerson)
-  .put(routeToPersonByID, PessoaController.updatePerson)
-  .put(routeToRegisterByID, PessoaController.updateRegister)
-  .delete(routeToPersonByID, PessoaController.deletePerson)
-  .delete(routeToRegisterByID, PessoaController.deleteRegister);
+  .get('/pessoas', PessoaController.getAllActivePersons)
+  .get('/pessoas/all', PessoaController.getAllPersons)
+  .get('/pessoas/:id', PessoaController.getPersonById)
+  .get('/pessoas/:studentId/matricula/:registerId', PessoaController.getRegisterByPersonId)
+  .get('/pessoas/:studentId/matriculas-confirmadas', PessoaController.getRegistersByStudent)
+  .get('/pessoas/matricula/:classId/confirmadas', PessoaController.getRegistersByClass)
+  .post('/pessoas', PessoaController.createPerson)
+  .post('/pessoas/:studentId/cancela', PessoaController.cancelPerson)
+  .post('/pessoas/:studentId/matricula', PessoaController.createRegisterByPersonId)
+  .post('/pessoas/:id/restore', PessoaController.restorePerson)
+  .put('/pessoas/:id', PessoaController.updatePerson)
+  .put('/pessoas/:studentId/matricula/:registerId', PessoaController.updateRegister)
+  .delete('/pessoas/:id', PessoaController.deletePerson)
+  .delete('/pessoas/:studentId/matricula/:registerId', PessoaController.deleteRegister);
 
 module.exports = router;
